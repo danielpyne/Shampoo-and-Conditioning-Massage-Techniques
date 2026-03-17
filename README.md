@@ -1,1 +1,1 @@
-Updated version with Rotary added
+Updated to include Rotary in original format
