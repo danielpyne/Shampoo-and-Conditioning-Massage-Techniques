@@ -3,92 +3,76 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Massage Techniques Premium Infographic</title>
+<title>Massage Techniques in Shampoo & Conditioning</title>
 <style>
-:root{
---fg:#111;--bg:#fff;--muted:#555;--border:#dcdcdc;
---p1:#E7F2FF;--p2:#FFF7D9;--p3:#F2E9FF;--p4:#EAF7F1;--p5:#FFECEE;
---radius:16px;--gap:16px;
-}
-body{margin:0;background:var(--bg);color:var(--fg);font-family:Perpetua,serif;}
-h1,h2,h3{font-family:"Alta-Regular",serif;font-weight:400}
-.wrap{max-width:1100px;margin:auto;padding:20px;display:grid;gap:var(--gap)}
-.panel{border:1px solid var(--border);border-radius:var(--radius);padding:16px}
-.tabs{display:flex;flex-wrap:wrap;gap:8px}
-.tab{padding:8px 14px;border-radius:20px;border:1px solid var(--border);cursor:pointer}
-.tab.active{background:#f5f5f5}
-.view{display:none}.view.active{display:block}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--gap)}
-.card{border:1px solid var(--border);border-radius:var(--radius);padding:12px;background:var(--p1)}
-.card.alt{background:var(--p3)}
-.btn{padding:8px 12px;border-radius:10px;border:none;background:#111;color:#fff;cursor:pointer}
-.progress{height:8px;background:#eee;border-radius:10px;overflow:hidden}
-.progress div{height:100%;background:#111;width:0%}
+  :root{
+    --fg:#111; --bg:#fff; --muted:#555; --border:#dcdcdc;
+    --p1:#E7F2FF; --p2:#FFF7D9; --p3:#F2E9FF; --p4:#EAF7F1; --p5:#FFECEE; --p6:#F1F5E8;
+    --radius:14px; --gap:14px; --accent:#9fbcd4;
+  }
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:Perpetua,serif;line-height:1.6;}
+  h1,h2,h3{font-family:"Alta-Regular",serif;font-weight:400;}
+  .wrap{max-width:1000px;margin:auto;padding:16px;display:grid;gap:var(--gap);}
+  .panel{border:1px solid var(--border);border-radius:var(--radius);padding:14px;}
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;}
+  .tab{padding:8px 12px;border-radius:999px;border:1px solid var(--border);cursor:pointer;}
+  .tab.active{background:#f5f5f5;}
+  .view{display:none}.view.active{display:block;}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--gap);}
+  .card{border:1px solid var(--border);border-radius:var(--radius);padding:12px;background:var(--p1);}
+  .card.alt{background:var(--p3);}
 </style>
 </head>
 <body>
 <div class="wrap">
-<h1>5 Massage Techniques (Premium)</h1>
+<header class="panel">
+<h1>Massage Techniques in Shampoo & Conditioning</h1>
+<p class="muted">Interactive guide including all 5 massage techniques.</p>
+</header>
 
-<div class="panel">
+<section class="panel">
 <div class="tabs">
 <div class="tab active" data-t="1">Techniques</div>
 <div class="tab" data-t="2">How</div>
-<div class="tab" data-t="3">Selector</div>
-<div class="tab" data-t="4">Scenario Trainer</div>
-<div class="tab" data-t="5">Quiz</div>
+<div class="tab" data-t="3">When</div>
+<div class="tab" data-t="4">Selector</div>
 </div>
 
 <div id="v1" class="view active">
 <div class="cards">
-<div class="card"><h3>Effleurage</h3><p>Light gliding movements.</p><p><strong>Rationale:</strong> Relaxation and product distribution.</p></div>
-<div class="card alt"><h3>Petrissage</h3><p>Kneading technique.</p><p><strong>Rationale:</strong> Stimulates circulation.</p></div>
-<div class="card"><h3>Friction</h3><p>Circular rubbing.</p><p><strong>Rationale:</strong> Deep cleansing.</p></div>
-<div class="card alt"><h3>Tapotement</h3><p>Light tapping.</p><p><strong>Rationale:</strong> Stimulation.</p></div>
-<div class="card"><h3>Rotary</h3><p>Large circular palm movements.</p><p><strong>Rationale:</strong> Gentle stimulation.</p></div>
+<div class="card"><h3>Effleurage</h3><p>Light gliding.</p></div>
+<div class="card alt"><h3>Petrissage</h3><p>Kneading.</p></div>
+<div class="card"><h3>Friction</h3><p>Circular rubbing.</p></div>
+<div class="card alt"><h3>Tapotement</h3><p>Light tapping.</p></div>
+<div class="card"><h3>Rotary</h3><p>Large circular palm movement.</p></div>
 </div>
 </div>
 
 <div id="v2" class="view">
-<div class="cards">
-<div class="card"><h3>Steps</h3>
-<ul>
-<li>Check scalp</li>
-<li>Start light</li>
-<li>Increase pressure</li>
-<li>Finish gently</li>
-</ul>
-</div>
-</div>
+<p>Use finger pads, not nails. Start light, increase if comfortable, finish gently.</p>
 </div>
 
 <div id="v3" class="view">
-<select id="type">
+<div class="cards">
+<div class="card"><h3>Normal</h3><p>Effleurage + Petrissage + Rotary</p></div>
+<div class="card"><h3>Oily</h3><p>Friction + Effleurage + Rotary</p></div>
+<div class="card"><h3>Dry</h3><p>Effleurage only</p></div>
+<div class="card"><h3>Dandruff</h3><p>Gentle Effleurage + light Friction</p></div>
+</div>
+</div>
+
+<div id="v4" class="view">
+<select id="sel">
 <option>Normal</option>
 <option>Oily</option>
 <option>Dry</option>
 <option>Dandruff</option>
 </select>
-<button class="btn" onclick="selectType()">Show</button>
+<button onclick="show()">Show</button>
 <p id="out"></p>
 </div>
 
-<div id="v4" class="view">
-<p>Client has sensitive scalp, what do you do?</p>
-<button class="btn" onclick="ans('correct')">Use light effleurage</button>
-<button class="btn" onclick="ans('wrong')">Use friction</button>
-<p id="scenario"></p>
-</div>
-
-<div id="v5" class="view">
-<p>Which technique is kneading?</p>
-<button class="btn" onclick="quiz('correct')">Petrissage</button>
-<button class="btn" onclick="quiz('wrong')">Friction</button>
-<p id="quiz"></p>
-<div class="progress"><div id="bar"></div></div>
-</div>
-
-</div>
+</section>
 </div>
 
 <script>
@@ -101,26 +85,15 @@ document.getElementById('v'+t.dataset.t).classList.add('active')
 }
 })
 
-function selectType(){
-let v=document.getElementById('type').value
+function show(){
+let v=document.getElementById('sel').value
 let map={
-"Normal":"Effleurage + Petrissage",
-"Oily":"Friction + Effleurage",
+"Normal":"Effleurage + Petrissage + Rotary",
+"Oily":"Friction + Effleurage + Rotary",
 "Dry":"Effleurage only",
 "Dandruff":"Gentle Effleurage"
 }
 document.getElementById('out').innerText=map[v]
-}
-
-function ans(a){
-document.getElementById('scenario').innerText=a=="correct"?"Correct":"Incorrect"
-}
-
-let score=0
-function quiz(a){
-if(a=="correct"){score+=25}
-document.getElementById('quiz').innerText=a=="correct"?"Correct":"Incorrect"
-document.getElementById('bar').style.width=score+"%"
 }
 </script>
 

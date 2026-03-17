@@ -1,1 +1,1 @@
-Upload to GitHub Pages
+Updated version with Rotary added
