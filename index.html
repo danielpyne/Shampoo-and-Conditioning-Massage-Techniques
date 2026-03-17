@@ -1,19 +1,128 @@
 <!doctype html>
-<html><head><meta charset="utf-8"><title>Massage Techniques</title>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Massage Techniques Premium Infographic</title>
 <style>
-body{font-family:Perpetua,serif;margin:0;padding:20px;background:#fff;color:#111}
-h1,h2{font-family:"Alta-Regular",serif;font-weight:400}
-.card{border:1px solid #ddd;border-radius:12px;padding:12px;margin:10px;background:#E7F2FF}
-</style></head>
+:root{
+--fg:#111;--bg:#fff;--muted:#555;--border:#dcdcdc;
+--p1:#E7F2FF;--p2:#FFF7D9;--p3:#F2E9FF;--p4:#EAF7F1;--p5:#FFECEE;
+--radius:16px;--gap:16px;
+}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Perpetua,serif;}
+h1,h2,h3{font-family:"Alta-Regular",serif;font-weight:400}
+.wrap{max-width:1100px;margin:auto;padding:20px;display:grid;gap:var(--gap)}
+.panel{border:1px solid var(--border);border-radius:var(--radius);padding:16px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px}
+.tab{padding:8px 14px;border-radius:20px;border:1px solid var(--border);cursor:pointer}
+.tab.active{background:#f5f5f5}
+.view{display:none}.view.active{display:block}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--gap)}
+.card{border:1px solid var(--border);border-radius:var(--radius);padding:12px;background:var(--p1)}
+.card.alt{background:var(--p3)}
+.btn{padding:8px 12px;border-radius:10px;border:none;background:#111;color:#fff;cursor:pointer}
+.progress{height:8px;background:#eee;border-radius:10px;overflow:hidden}
+.progress div{height:100%;background:#111;width:0%}
+</style>
+</head>
 <body>
-<h1>Massage Techniques in Shampooing</h1>
-<p>This infographic covers all 5 massage techniques used in hairdressing.</p>
+<div class="wrap">
+<h1>5 Massage Techniques (Premium)</h1>
 
-<div class="card"><h2>Effleurage</h2><p>Light gliding movements to relax and spread product.</p></div>
-<div class="card"><h2>Petrissage</h2><p>Kneading movements to stimulate circulation.</p></div>
-<div class="card"><h2>Friction</h2><p>Circular rubbing to cleanse and lift residue.</p></div>
-<div class="card"><h2>Tapotement</h2><p>Light tapping for stimulation (used carefully).</p></div>
-<div class="card"><h2>Rotary</h2><p>Large circular movements using palms to stimulate scalp gently.</p></div>
+<div class="panel">
+<div class="tabs">
+<div class="tab active" data-t="1">Techniques</div>
+<div class="tab" data-t="2">How</div>
+<div class="tab" data-t="3">Selector</div>
+<div class="tab" data-t="4">Scenario Trainer</div>
+<div class="tab" data-t="5">Quiz</div>
+</div>
 
-<p><strong>Key Rule:</strong> Always adapt technique to scalp condition.</p>
-</body></html>
+<div id="v1" class="view active">
+<div class="cards">
+<div class="card"><h3>Effleurage</h3><p>Light gliding movements.</p><p><strong>Rationale:</strong> Relaxation and product distribution.</p></div>
+<div class="card alt"><h3>Petrissage</h3><p>Kneading technique.</p><p><strong>Rationale:</strong> Stimulates circulation.</p></div>
+<div class="card"><h3>Friction</h3><p>Circular rubbing.</p><p><strong>Rationale:</strong> Deep cleansing.</p></div>
+<div class="card alt"><h3>Tapotement</h3><p>Light tapping.</p><p><strong>Rationale:</strong> Stimulation.</p></div>
+<div class="card"><h3>Rotary</h3><p>Large circular palm movements.</p><p><strong>Rationale:</strong> Gentle stimulation.</p></div>
+</div>
+</div>
+
+<div id="v2" class="view">
+<div class="cards">
+<div class="card"><h3>Steps</h3>
+<ul>
+<li>Check scalp</li>
+<li>Start light</li>
+<li>Increase pressure</li>
+<li>Finish gently</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="v3" class="view">
+<select id="type">
+<option>Normal</option>
+<option>Oily</option>
+<option>Dry</option>
+<option>Dandruff</option>
+</select>
+<button class="btn" onclick="selectType()">Show</button>
+<p id="out"></p>
+</div>
+
+<div id="v4" class="view">
+<p>Client has sensitive scalp, what do you do?</p>
+<button class="btn" onclick="ans('correct')">Use light effleurage</button>
+<button class="btn" onclick="ans('wrong')">Use friction</button>
+<p id="scenario"></p>
+</div>
+
+<div id="v5" class="view">
+<p>Which technique is kneading?</p>
+<button class="btn" onclick="quiz('correct')">Petrissage</button>
+<button class="btn" onclick="quiz('wrong')">Friction</button>
+<p id="quiz"></p>
+<div class="progress"><div id="bar"></div></div>
+</div>
+
+</div>
+</div>
+
+<script>
+document.querySelectorAll('.tab').forEach(t=>{
+t.onclick=()=>{
+document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'))
+document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'))
+t.classList.add('active')
+document.getElementById('v'+t.dataset.t).classList.add('active')
+}
+})
+
+function selectType(){
+let v=document.getElementById('type').value
+let map={
+"Normal":"Effleurage + Petrissage",
+"Oily":"Friction + Effleurage",
+"Dry":"Effleurage only",
+"Dandruff":"Gentle Effleurage"
+}
+document.getElementById('out').innerText=map[v]
+}
+
+function ans(a){
+document.getElementById('scenario').innerText=a=="correct"?"Correct":"Incorrect"
+}
+
+let score=0
+function quiz(a){
+if(a=="correct"){score+=25}
+document.getElementById('quiz').innerText=a=="correct"?"Correct":"Incorrect"
+document.getElementById('bar').style.width=score+"%"
+}
+</script>
+
+</body>
+</html>
